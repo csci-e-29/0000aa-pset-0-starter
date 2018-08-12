@@ -168,7 +168,7 @@ look like:
 While a pyramid of height 3 would look like:
 
 ```
-—-=--
+--=--
 -===-
 =====
 ```
