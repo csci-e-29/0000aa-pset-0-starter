@@ -1,4 +1,13 @@
-# pset-0-starter
+# Pset 0
+
+This pset is mandatory but ungraded - you will get full credit for a complete
+submission, but will receive full feedback.  "Grades" will be returned before
+the drop date.
+
+The questions are designed to be solvable with minimal prepwork - you should be
+able to complete them with your own experience and limited external research.
+If they prove too challenging, please discuss with the teaching staff whether
+you should consider delaying enrollment in this course.
 
 ## Setting up your environment
 
@@ -22,3 +31,45 @@ docker-compose run app python some_file.py
 # Drop into an ipython shell in the container
 docker-compose run app ipython
 ```
+
+## Grading standards and mechanics
+
+You will submit your problem via editing this repository and pushing your code
+to Github Classroom before the deadline.
+
+Please ensure that this README is visibly accurate on GitHub after your final
+submission.
+
+This is a Markdown file which allows for easy writing of rich text.  Many
+editors and IDEs will display a rendered version of this text for easy reading.
+Please read more about
+[GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/)
+for style and syntax references.
+
+###  Submissions
+Some problems will require code, and some will be textual.  For the latter, you
+should enter your answers inline in this file below the heading.  All code which
+supports an answer must be committed and referred to from this file.
+
+In addition to the answers you provide, we will subjectively grade you on the
+overall quality of your submission - stylistic consistency, readability, design,
+documentation, commenting, appropriate commit history, etc.  Treat this
+assignment as if it were a collaborative project in a real working environment.
+
+For example, regarding git history, we do not want to see a single commit with 
+all of your work.  You should have an appropriate amount of history with
+consistent and logically isolated commits, minimal 'undo' commits, no 
+unnecessary files added, etc.
+
+Grading breakdown:
+1. Problems: 80 points
+2. Overall python quality assessment: 10 points
+3. Overall git history/etc quality assessment: 10 points
+
+## Problems (80 points)
+
+### Feedback (10 points)
+
+#### How many hours did this assignment take? (2 points)
+
+#### What did you find interesting? Challenging? Tedious? (8 points)
