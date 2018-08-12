@@ -83,8 +83,145 @@ Grading breakdown:
 
 ## Problems (80 points)
 
+### Python project (10 points)
+
+Describe a Python project that you have been involved in. Provide details. For
+example, how did you design a data structure or algorithm? How did yor approach
+error handling, modular design, etc?
+
+### Importing (10 points)
+
+What is the difference between the following statements? When would you prefer
+each? *(NB: the package is irrelevant)*
+
+```python
+import urllib
+from urllib import request
+import urllib.request
+```
+
+### Trees (10 points)
+
+Read the code below, but do ***not*** run it - evaluate it by sight or on paper
+only.  What is the output of the program? Explain the different between
+`print_all_1()` and `print_all_2()`.
+
+```python
+class Node(object):
+  def __init__(self, name):
+    self._children = []
+    self.name = name
+
+  def __repr__(self):
+    return "<Node '{}'>".format(self.name)
+
+  def append(self, *args, **kwargs):
+    self._children.append(*args, **kwargs)
+
+  def print_all_1(self):
+    print(self)
+    for child in self._children:
+      child.print_all_1()
+
+  def print_all_2(self):
+    def generator(obj):
+      all = [obj,]
+      while all:
+        next = all.pop(0)
+        all.extend(next._children)
+        yield next
+
+    for node in generator(self):
+      print(node)
+
+root = Node("root")
+child1 = Node("child1")
+child2 = Node("child2")
+child3 = Node("child3")
+child4 = Node("child4")
+child5 = Node("child5")
+child6 = Node("child6")
+
+root.append(child1)
+root.append(child2)
+child1.append(child3)
+child1.append(child4)
+child2.append(child5)
+child2.append(child6)
+
+root.print_all_1()
+root.print_all_2()
+```
+
+### Pyramid (15 points)
+
+Write a program that outputs an isosceles pyramid of variable height to the
+terminal using the example characters.  For example, a pyramid of height 2 would
+look like:
+
+```
+-=-
+===
+```
+
+While a pyramid of height 3 would look like:
+
+```
+—-=--
+-===-
+=====
+```
+
+Print a pyramid of height 10
+
+### Fibonacci (25 points)
+
+The Fibonacci sequence, `f(i)`, is defined as `(0, 1, 1, 2, 3, 5, 8, …)` where
+the `i`th number is the sum of the two proceeding numbers, with `f(0) == 0` and
+`f(1) == 1`.  A common implementation of the function adds the result of
+calling itself on a smaller number, i.e.:
+
+```python
+def f(i):
+    return f(i - 1) + f(i - 2)
+```
+
+with appropriate handling of the edge cases.
+
+#### Naive implementation (5 points)
+
+Describe the pros and cons of this implementation.  How does it scale as `i`
+gets large?
+
+#### What is the value of `f(100000)` (10 points)?
+
+Note: the common implementation may not work! Your code should
+execute very quickly.  Describe any changes you made in terms of scaling,
+time/memory tradeoffs, etc, and ensure your working function is committed.
+
+#### Generalizing (10 points)
+
+We can think of this sequence as a special case of a class of sequences where
+the `i`th number is the sum of the previous `n` numbers in the sequence, with
+the first `n` numbers defined arbitrarily.   That is, the Fibonacci sequence is
+a special instance where `n=2` with the first numbers `(0, 1)`.
+
+Design a class where the Fibonacci sequence is an instance (you can use the
+common implementation logic - we don’t need to scale right now!). Now, create a
+new sequence instance where n=3 and the initial values are `(5, 7, 11)`, and
+return the value of `new_seq(20)`.
+
 ### Feedback (10 points)
 
 #### How many hours did this assignment take? (2 points)
 
 #### What did you find interesting? Challenging? Tedious? (8 points)
+
+## Python Quality (10 points)
+Notes from TA may go here
+
+## Git History (10 points)
+Notes from TA may go here
+
+## Total Grade
+Notes from TA may go here
