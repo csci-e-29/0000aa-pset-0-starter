@@ -6,10 +6,10 @@ the drop date.
 
 **Please complete this Pset before class begins** if possible.
 
-The questions are designed to be solvable with minimal prepwork - you should be
-able to complete them with your own experience and limited external research.
-If they prove too challenging, please discuss with the teaching staff whether
-you should consider delaying enrollment in this course.
+The questions are designed to be solvable with minimal prep work - you should be
+able to complete them with your own prior knowledge and limited external
+research. If they prove too challenging, please discuss with the teaching staff
+whether you should consider delaying enrollment in this course.
 
 ## Setting up your environment
 
@@ -77,6 +77,7 @@ consistent and logically isolated commits, minimal 'undo' commits, no
 unnecessary files added, etc.
 
 Grading breakdown:
+
 1. Problems: 80 points
 2. Overall python quality assessment: 10 points
 3. Overall git history/etc quality assessment: 10 points
