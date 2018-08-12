@@ -209,8 +209,26 @@ a special instance where `n=2` with the first numbers `(0, 1)`.
 
 Design a class where the Fibonacci sequence is an instance (you can use the
 common implementation logic - we don’t need to scale right now!). Now, create a
-new sequence instance where n=3 and the initial values are `(5, 7, 11)`, and
-return the value of `new_seq(20)`.
+new sequence instance where `n=3` and the initial values are `(5, 7, 11)`;
+return the value of `new_seq(20)`.  E.g.:
+
+```python
+class SummableSequence(object):
+
+    def __init__(self, n, initial):
+        ...
+
+    def __call__(self, i):
+        ...
+
+
+if __name__ == '__main__':
+    fib = SummableSequence(2, (0, 1))
+    assert fib(6) == 8
+
+    new_seq = SummableSequence(3, (5, 7, 11))
+    print(new_seq(20))
+```
 
 ### Feedback (10 points)
 
