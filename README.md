@@ -173,7 +173,8 @@ While a pyramid of height 3 would look like:
 =====
 ```
 
-Print a pyramid of height 10
+Implement the function `print_pyramid` in [pyramid.py](pyramid.py) and print a
+pyramid of height 10.
 
 ### Fibonacci (25 points)
 
@@ -199,6 +200,9 @@ gets large?
 Note: the common implementation may not work! Your code should
 execute very quickly.  Describe any changes you made in terms of scaling,
 time/memory tradeoffs, etc, and ensure your working function is committed.
+
+Implement your solution in `optimized_fibonacci` within
+[fibonacci.py](fibonacci.py).
 
 #### Generalizing (10 points)
 
@@ -229,6 +233,8 @@ if __name__ == '__main__':
     new_seq = SummableSequence(3, (5, 7, 11))
     print(new_seq(20))
 ```
+
+Continue the implementation in [fibonacci.py](fibonacci.py).
 
 ### Feedback (10 points)
 
