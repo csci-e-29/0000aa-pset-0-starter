@@ -126,7 +126,7 @@ if __name__ == '__main__':
 
 ### CI/CD
 Take a look at the file [.travis.yml](.travis.yml).  When you push a commit
-to github, [https://travis-ci.com/](Travis CI) will run your code in a number
+to github, [Travis CI](https://travis-ci.com/) will run your code in a number
 of ways.  It will first run the unittests via `python3 -m unittest`, and, if
 those succeed, will progress to the 'Answers' stage of the build.  Note in
 the file how it invokes your runnables:
