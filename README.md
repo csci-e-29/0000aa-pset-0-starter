@@ -28,7 +28,7 @@ returned before the drop date.
     - [A better solution (5 points)](#a-better-solution-5-points)
     - [Generalizing (10 points)](#generalizing-10-points)
 - [Other grading aspects (40 points)](#other-grading-aspects-40-points)
-  - [Testing Qualtiy (20 points)](#testing-qualtiy-20-points)
+  - [Testing Quality (20 points)](#testing-quality-20-points)
   - [Python Quality (10 points)](#python-quality-10-points)
   - [Git History (10 points)](#git-history-10-points)
 
