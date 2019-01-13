@@ -1,22 +1,52 @@
 # Pset 0
 
-This pset is mandatory but ungraded - you will get full credit for a complete
-submission, but will receive full feedback.  "Grades" will be returned before
-the drop date.
+This problem set is designed to be solvable with minimal prep work - you should
+be able to complete it with your own prior knowledge and limited external
+research beyond the provided tutorials. If it proves too challenging, please
+discuss with the teaching staff whether you should consider delaying enrollment
+in this course.
 
-**Please complete this Pset before class begins** if possible.
+**Please complete this Pset before class begins** if possible.  Feedback will be
+returned before the drop date.
 
-The questions are designed to be solvable with minimal prep work - you should be
-able to complete them with your own prior knowledge and limited external
-research. If they prove too challenging, please discuss with the teaching staff
-whether you should consider delaying enrollment in this course.
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [Setting up your environment](#setting-up-your-environment)
+  - [Docker](#docker)
+    - [Installation and setup](#installation-and-setup)
+- [Grading standards and mechanics](#grading-standards-and-mechanics)
+  - [Submissions](#submissions)
+- [Showing your work!](#showing-your-work)
+  - [CI/CD](#cicd)
+  - [Git mechanics](#git-mechanics)
+- [Problems (25 points)](#problems-25-points)
+  - [Build badge (5 points)](#build-badge-5-points)
+  - [Pyramid (5 points)](#pyramid-5-points)
+  - [Fibonacci (15 points)](#fibonacci-15-points)
+    - [A better solution (5 points)](#a-better-solution-5-points)
+    - [Generalizing (10 points)](#generalizing-10-points)
+- [Other grading aspects (40 points)](#other-grading-aspects-40-points)
+  - [Testing Qualtiy (20 points)](#testing-qualtiy-20-points)
+  - [Python Quality (10 points)](#python-quality-10-points)
+  - [Git History (10 points)](#git-history-10-points)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## Setting up your environment
 
-You need a computer which can run python 3, and preferably an IDE and debugger.
+You need a computer which can run python 3.7, and preferably an IDE and debugger.
 A good example is
 [PyCharm, which is free for students](https://www.jetbrains.com/student/).
 
+### Docker
+This course will explore Docker, a containerization system, to help develop
+within fully repeatable environments.  You may need to use docker immediately
+if you are developing on Windows (the unittests use [signals](https://docs.python.org/3.7/library/signal.html#signal.signal)).  You
+should experiment with docker regardless, though it is not critical yet.
+
+#### Installation and setup
 You can install [Docker](https://docs.docker.com/install/) and
 [Docker Compose](https://docs.docker.com/compose/install/) to get a fully
 repeatable environment.  You can then [set up PyCharm to use your docker-compose
@@ -32,39 +62,33 @@ docker-compose run app python some_file.py
 
 # Drop into an ipython shell in the container
 docker-compose run app ipython
+
+# Run unittests
+docker-compose run app python -m unittest
 ```
 
-You may commit any python files you wish, but do NOT commit a Jupyter notebook.
-You may commit and run code like this:
-
-```python
-# some_file.py
-
-def f(x):
-    return x
-
-if __name__ == '__main__':
-    print('f(10) is:', f(10))
-```
+Docker is not strictly necessary to complete this initial set - just ensure you
+can get it running and will be ready to dive into the concepts.
 
 ## Grading standards and mechanics
 
 You will submit your problem via editing this repository and pushing your code
-to Github Classroom before the deadline.
+to Github Classroom before the deadline. There may be an associated "quiz" where
+you can submit answers as well.
 
 Please ensure that this README is visibly accurate on GitHub after your final
 submission.
 
 This is a Markdown file which allows for easy writing of rich text.  Many
 editors and IDEs will display a rendered version of this text for easy reading.
-Please read more about
-[GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/)
-for style and syntax references.
+Please read more about [GitHub Flavored
+Markdown](https://guides.github.com/features/mastering-markdown/) for style and
+syntax references.
 
 ###  Submissions
-Some problems will require code, and some will be textual.  For the latter, you
-should enter your answers inline in this file below the heading.  All code which
-supports an answer must be committed and referred to from this file.
+Some problems will require code, and some will be textual.  The latter will
+be captured via quizes on canvas to facilitate grading.  All code will be
+submitted through this repository.
 
 In addition to the answers you provide, we will subjectively grade you on the
 overall quality of your submission - stylistic consistency, readability, design,
@@ -76,85 +100,81 @@ all of your work.  You should have an appropriate amount of history with
 consistent and logically isolated commits, minimal 'undo' commits, no
 unnecessary files added, etc.
 
-Grading breakdown:
+Each problem set will be worth a total of 100 points.  What you see here is
+for code only - the remaining points will be allocated to answers in Canvas
+and overall assessment.
 
-1. Problems: 80 points
-2. Overall python quality assessment: 10 points
-3. Overall git history/etc quality assessment: 10 points
+## Showing your work!
 
-## Problems (80 points)
+It is not enough to run code in a Jupyter notebook, or even ipython shell,
+and paste the answer into Canvas.  These problem sets will be designed to rerun
+your work and validate it through "continuous integration and 'deployment.'"
 
-### Python project (10 points)
-
-Describe a Python project that you have been involved in. Provide details. For
-example, how did you design a data structure or algorithm? How did yor approach
-error handling, modular design, etc?
-
-### Importing (10 points)
-
-What is the difference between the following statements? When would you prefer
-each? *(NB: the package is irrelevant)*
+You may commit any python files you wish, but do NOT commit a Jupyter notebook.
+The general pattern for showing work looks like this:
 
 ```python
-import urllib
-from urllib import request
-import urllib.request
+# some_file.py
+
+def f(x):
+    return x
+
+if __name__ == '__main__':
+    # Canvas asks for the value of f(10)
+    print('f(10) is:', f(10))
 ```
 
-### Trees (10 points)
+### CI/CD
+Take a look at the file [.travis.yml](.travis.yml).  When you push a commit
+to github, [https://travis-ci.com/](Travis CI) will run your code in a number
+of ways.  It will first run the unittests via `python3 -m unittest`, and, if
+those succeed, will progress to the 'Answers' stage of the build.  Note in
+the file how it invokes your runnables:
 
-Read the code below, but do ***not*** run it - evaluate it by sight or on paper
-only.  What is the output of the program? Explain the different between
-`print_all_1()` and `print_all_2()`.
+```yaml
 
-```python
-class Node(object):
-  def __init__(self, name):
-    self._children = []
-    self.name = name
-
-  def __repr__(self):
-    return "<Node '{}'>".format(self.name)
-
-  def append(self, *args, **kwargs):
-    self._children.append(*args, **kwargs)
-
-  def print_all_1(self):
-    print(self)
-    for child in self._children:
-      child.print_all_1()
-
-  def print_all_2(self):
-    def generator(obj):
-      all = [obj,]
-      while all:
-        next = all.pop(0)
-        all.extend(next._children)
-        yield next
-
-    for node in generator(self):
-      print(node)
-
-root = Node("root")
-child1 = Node("child1")
-child2 = Node("child2")
-child3 = Node("child3")
-child4 = Node("child4")
-child5 = Node("child5")
-child6 = Node("child6")
-
-root.append(child1)
-root.append(child2)
-child1.append(child3)
-child1.append(child4)
-child2.append(child5)
-child2.append(child6)
-
-root.print_all_1()
-root.print_all_2()
+jobs:
+  include:
+    - stage: test
+      script: python3 -m unittest -v
+    - stage: answers
+      script: python3 fibonacci.py
 ```
 
-### Pyramid (15 points)
+After you push your code, you will see a few indicators on GitHub that you
+can click through to see the status of the build.  Click on the "Commits" tab
+and then notice the red checks etc:
+
+![](img/commits.png)
+
+You can click through the details or navigate directly to your Travis page,
+which will have a url like so [PLEASE REPLACE your link!]:
+
+[https://travis-ci.com/csci-e-29/2019sp-pset-0-gorlins/](https://travis-ci.com/csci-e-29/2019sp-pset-0-gorlins/)
+
+You will add a build badge (see below) to make it even more explicit.  The
+teaching staff will look at your answers as 'deployed' via Travis to validate
+your submissions to Canvas.
+
+### Git mechanics
+
+Your answers will only run on the master branch.  Since shared computing
+resources on the CI/CD environment are limited, please try to minimize the
+commits to master - try using a git branching model, and only 'release' work to
+master that is  intended to be 'production ready' (eg fully answers a problem).
+We will explore this more formally throughout the course.
+
+Try to avoid rapid small changes to master (eg don't edit directly on github!)
+without running tests yourself to ensure they pass.
+
+## Problems (25 points)
+
+### Build badge (5 points)
+
+**[Add a build badge](https://docs.travis-ci.com/user/status-images/)** to the
+top of this README, using the markdown template for your master branch.
+
+### Pyramid (5 points)
 
 Write a program that outputs an isosceles pyramid of variable height to the
 terminal using the example characters.  For example, a pyramid of height 2 would
@@ -176,7 +196,7 @@ While a pyramid of height 3 would look like:
 Implement the function `print_pyramid` in [pyramid.py](pyramid.py) and print a
 pyramid of height 10.
 
-### Fibonacci (25 points)
+### Fibonacci (15 points)
 
 The Fibonacci sequence, `f(i)`, is defined as `(0, 1, 1, 2, 3, 5, 8, …)` where
 the `i`th number is the sum of the two proceeding numbers, with `f(0) == 0` and
@@ -190,14 +210,12 @@ def f(i):
 
 with appropriate handling of the edge cases.
 
-#### Naive implementation (5 points)
 
-Describe the pros and cons of this implementation.  How does it scale as `i`
-gets large?
+#### A better solution (5 points)
 
-#### What is the value of `f(100000)` (10 points)?
+What is the value of `f(1000)`?
 
-Note: the common implementation may not work! Your code should
+Note that the common implementation will not work! Your code should
 execute very quickly.  Describe any changes you made in terms of scaling,
 time/memory tradeoffs, etc, and ensure your working function is committed.
 
@@ -227,26 +245,32 @@ class SummableSequence(object):
 
 
 if __name__ == '__main__':
-    fib = SummableSequence(2, (0, 1))
-    assert fib(6) == 8
-
+    ...
     new_seq = SummableSequence(3, (5, 7, 11))
     print(new_seq(20))
 ```
 
 Continue the implementation in [fibonacci.py](fibonacci.py).
 
-### Feedback (10 points)
+## Other grading aspects (40 points)
 
-#### How many hours did this assignment take? (2 points)
+### Testing Qualtiy (20 points)
 
-#### What did you find interesting? Challenging? Tedious? (8 points)
+Take a look at the file [tests.py](tests.py).  It has unittests you can run with
+`python3 -m unittest`.  They all should pass!  Do not touch the existing test
+methods, but you can add new ones to ensure your code is working properly.  Try
+to ensure tests pass before you commit and push new code on your master branch!
+This will help minimize the number of builds on the CI server.
 
-## Python Quality (10 points)
-Notes from TA may go here
+### Python Quality (10 points)
 
-## Git History (10 points)
-Notes from TA may go here
+We will comment on your overall quality of documentation, commenting,
+appropriate variable names, usage of higher-level code, etc.
 
-## Total Grade
-Notes from TA may go here
+### Git History (10 points)
+
+Git commits should be logically structured, follow a branching model, etc.  Do
+not commit irrelevant files to the VCS (eg, anything under `__pycache__` or your
+editor/IDE configurations).  Never `git add *` or `git commit -a`!  They lump
+all your changes together; you want each commit to be a logical bit of history
+that captures what was done and why in a cohesive unit.
