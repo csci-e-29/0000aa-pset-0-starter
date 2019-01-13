@@ -254,7 +254,7 @@ Continue the implementation in [fibonacci.py](fibonacci.py).
 
 ## Other grading aspects (40 points)
 
-### Testing Qualtiy (20 points)
+### Testing Quality (20 points)
 
 Take a look at the file [tests.py](tests.py).  It has unittests you can run with
 `python3 -m unittest`.  They all should pass!  Do not touch the existing test
