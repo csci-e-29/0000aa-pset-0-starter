@@ -18,10 +18,5 @@ if __name__ == '__main__':
 
     print('f(100000):', optimized_fibonacci(100000))
 
-    # Check to ensure we agree with basic Fibonacci
-    fib = SummableSequence(2, (0, 1))
-    assert fib(6) == 8
-
-    # Actual HW answer
     new_seq = SummableSequence(3, (5, 7, 11))
     print('new_seq(20):', new_seq(20))
