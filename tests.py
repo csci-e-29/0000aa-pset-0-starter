@@ -3,7 +3,7 @@ from contextlib import contextmanager
 from time import sleep, time
 from unittest import TestCase, main
 
-from fibonacci import SummableSequence, optimized_fibonacci
+from fibonacci import SummableSequence, last_8, optimized_fibonacci
 
 try:
     # Absent on Windows, trigger AttributeError
@@ -62,6 +62,10 @@ class TestTimeout(TestCase):
                 sleep(2)
 
 
+class MiscTests(TestCase):
+    def test_8(self):
+        self.assertEqual(123, last_8(123))
+        self.assertEqual(last_8(123456789), 23456789)
 
 
 if __name__ == '__main__':
