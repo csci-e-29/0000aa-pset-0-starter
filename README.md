@@ -46,6 +46,9 @@ within fully repeatable environments.  You may need to use docker immediately
 if you are developing on Windows (the unittests use [signals](https://docs.python.org/3.7/library/signal.html#signal.signal)).  You
 should experiment with docker regardless, though it is not critical yet.
 
+Older versions of Windows and Mac can install legacy Docker Toolbox or
+[VirtualBox](https://www.virtualbox.org/) if necessary.
+
 #### Installation and setup
 You can install [Docker](https://docs.docker.com/install/) and
 [Docker Compose](https://docs.docker.com/compose/install/) to get a fully
@@ -156,23 +159,39 @@ You will add a build badge (see below) to make it even more explicit.  The
 teaching staff will look at your answers as 'deployed' via Travis to validate
 your submissions to Canvas.
 
+***NB***: We have limited concurrent builds.  Depending on how many students
+are submitting code simultaneously, your job may hang in 'pending' mode for a
+while.  The teaching staff will monitor and upgrade our build plan if necessary.
+
 ### Git mechanics
+
+If you have never used Git or Github before, please see the supplemental
+tutorials section in Canvas or go through some Github tutorials.  Git has a
+steep learning curve.  Ask for help in Piazza if necessary.
 
 Your answers will only run on the master branch.  Since shared computing
 resources on the CI/CD environment are limited, please try to minimize the
 commits to master - try using a git branching model, and only 'release' work to
-master that is  intended to be 'production ready' (eg fully answers a problem).
-We will explore this more formally throughout the course.
+master that is intended to be 'production ready' (eg fully answers one of the
+problems). You may merge to master multiple times - at the pset deadline, github
+will tag the latest master commit.  We will explore branching and release models
+like this more formally throughout the course.
 
 Try to avoid rapid small changes to master (eg don't edit directly on github!)
 without running tests yourself to ensure they pass.
+
+You may also add `[skip ci]` in your git message to instruct travis not to run
+tests for a commit.  Only do so for code that doesn't need testing - eg editing
+this README, or docstrings, etc.
 
 ## Problems (25 points)
 
 ### Build badge (5 points)
 
 **[Add a build badge](https://docs.travis-ci.com/user/status-images/)** to the
-top of this README, using the markdown template for your master branch.
+top of this README, using the markdown template for your master branch.  You
+may add multiple if you'd like for various branches (eg, a 'develop' branch),
+but only one for master is required.
 
 ### Pyramid (5 points)
 
@@ -198,7 +217,7 @@ pyramid of height 10.
 
 ### Fibonacci (15 points)
 
-The Fibonacci sequence, `f(i)`, is defined as `(0, 1, 1, 2, 3, 5, 8, …)` where
+The Fibonacci sequence, `f(i)`, is defined as `(0, 1, 1, 2, 3, 5, 8, ...)` where
 the `i`th number is the sum of the two proceeding numbers, with `f(0) == 0` and
 `f(1) == 1`.  A common implementation of the function adds the result of
 calling itself on a smaller number, i.e.:
@@ -215,9 +234,10 @@ with appropriate handling of the edge cases.
 
 What is the value of `f(1000)`?
 
-Note that the common implementation will not work! Your code should
-execute very quickly.  Describe any changes you made in terms of scaling,
-time/memory tradeoffs, etc, and ensure your working function is committed.
+Note that the common implementation will not work! Your code should execute very
+quickly (do not remove the timeouts in the unittests!).  Describe any changes
+you made in terms of scaling, time/memory tradeoffs, etc, and ensure your
+working function is committed.
 
 Implement your solution in `optimized_fibonacci` within
 [fibonacci.py](fibonacci.py).
@@ -229,8 +249,7 @@ the `i`th number is the sum of the previous `n` numbers in the sequence, with
 the first `n` numbers defined arbitrarily.   That is, the Fibonacci sequence is
 a special instance where `n=2` with the first numbers `(0, 1)`.
 
-Design a class where the Fibonacci sequence is an instance (you can use the
-common implementation logic - we don’t need to scale right now!). Now, create a
+Design a class where the Fibonacci sequence is an instance. Now, create a
 new sequence instance where `n=3` and the initial values are `(5, 7, 11)`;
 return the value of `new_seq(20)`.  E.g.:
 
@@ -249,6 +268,9 @@ if __name__ == '__main__':
     new_seq = SummableSequence(3, (5, 7, 11))
     print(new_seq(20))
 ```
+
+***Make sure you apply your learnings from `optimized_fibonacci` to this
+class!*** We want this to be an efficient solution as well.
 
 Continue the implementation in [fibonacci.py](fibonacci.py).
 
