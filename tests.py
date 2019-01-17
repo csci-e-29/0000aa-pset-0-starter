@@ -1,33 +1,38 @@
 import signal
 from contextlib import contextmanager
+from time import sleep, time
 from unittest import TestCase, main
 
 from fibonacci import SummableSequence, optimized_fibonacci
 
+try:
+    # Absent on Windows, trigger AttributeError
+    signal.alarm
 
-def _timeout(signum, frame):
-    print('Signal handler called with signal', signum)
-    raise TimeoutError()
+    def _timeout(signum, frame):
+        raise TimeoutError()
 
+    signal.signal(signal.SIGALRM, _timeout)
 
-signal.signal(signal.SIGALRM, _timeout)
+    @contextmanager
+    def timeout(seconds=1, message="Timeout!"):
+        # NB: doesn't work on windows
+        signal.alarm(seconds)
+        try:
+            yield
+        except TimeoutError:
+            raise TimeoutError(message)
+        finally:
+            signal.alarm(0)
 
+except AttributeError:
 
-@contextmanager
-def timeout(seconds=1, message="Timeout!"):
-    # NB: doesn't work on windows
-    signal.alarm(seconds)
-    try:
+    @contextmanager
+    def timeout(seconds=1, message="Timeout!"):
+        t0 = time()
         yield
-    except TimeoutError:
-        raise TimeoutError(message)
-    signal.alarm(0)
-
-
-def raw_fib(n):
-    if n < 2:
-        return n
-    return raw_fib(n-1) + raw_fib(n - 2)
+        if time() - t0 > seconds:
+            raise TimeoutError(message)
 
 
 class FibTests(TestCase):
@@ -44,9 +49,19 @@ class FibTests(TestCase):
                 self.assertEqual(optimized_fibonacci(n), expected)
 
     def test_summable(self):
-        with timeout():
-            ss = SummableSequence(2, (0, 1))
-            self.assertEqual(ss(9), optimized_fibonacci(9))
+        ss = SummableSequence(2, (0, 1))
+        for n in range(0, 50, 5):
+            with timeout(message="Timeout running f({})".format(n)):
+                self.assertEqual(ss(n), optimized_fibonacci(n))
+
+
+class TestTimeout(TestCase):
+    def test_timeout(self):
+        with self.assertRaises(TimeoutError):
+            with timeout():
+                sleep(2)
+
+
 
 
 if __name__ == '__main__':
