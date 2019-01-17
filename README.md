@@ -251,7 +251,7 @@ a special instance where `n=2` with the first numbers `(0, 1)`.
 
 Design a class where the Fibonacci sequence is an instance. Now, create a
 new sequence instance where `n=3` and the initial values are `(5, 7, 11)`;
-return the value of `new_seq(20)`.  E.g.:
+return the value of `new_seq(100000)`.  E.g.:
 
 ```python
 class SummableSequence(object):
@@ -266,7 +266,7 @@ class SummableSequence(object):
 if __name__ == '__main__':
     ...
     new_seq = SummableSequence(3, (5, 7, 11))
-    print(new_seq(20))
+    print(last_8(new_seq(100000)))
 ```
 
 ***Make sure you apply your learnings from `optimized_fibonacci` to this
