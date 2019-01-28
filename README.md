@@ -232,7 +232,7 @@ with appropriate handling of the edge cases.
 
 #### A better solution (5 points)
 
-What is the value of `f(1000)`?
+What is the value of `f(100000)`?
 
 Note that the common implementation will not work! Your code should execute very
 quickly (do not remove the timeouts in the unittests!).  Describe any changes
