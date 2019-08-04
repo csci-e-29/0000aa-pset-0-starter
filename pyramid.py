@@ -17,14 +17,14 @@ def print_pyramid(rows):
 
     :param int rows: total height
     """
-    raise NotImplementedError('Called with rows={}'.format(rows))
+    raise NotImplementedError("Called with rows={}".format(rows))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     parser = ArgumentParser(
-        description=__doc__, formatter_class=RawDescriptionHelpFormatter,
+        description=__doc__, formatter_class=RawDescriptionHelpFormatter
     )
-    parser.add_argument('-r', '--rows', default=10, type=int, help='Number of rows')
+    parser.add_argument("-r", "--rows", default=10, type=int, help="Number of rows")
 
     args = parser.parse_args()
     print_pyramid(args.rows)

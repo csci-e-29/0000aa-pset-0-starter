@@ -25,6 +25,7 @@ try:
         finally:
             signal.alarm(0)
 
+
 except AttributeError:
 
     @contextmanager
@@ -36,14 +37,18 @@ except AttributeError:
 
 
 class FibTests(TestCase):
-
     def test_fibonnacci(self):
         for n, expected in [
             # Check progressively more complex values, see if time out
-            (0, 0), (1, 1), (6, 8),
+            (0, 0),
+            (1, 1),
+            (6, 8),
             (10, 55),
             (15, 610),
-            (20, 6765), (30, 832040), (40, 102334155), (100, 354224848179261915075),
+            (20, 6765),
+            (30, 832040),
+            (40, 102334155),
+            (100, 354224848179261915075),
         ]:
             with timeout(message="Timeout running f({})".format(n)):
                 self.assertEqual(optimized_fibonacci(n), expected)
@@ -68,5 +73,5 @@ class MiscTests(TestCase):
         self.assertEqual(last_8(123456789), 23456789)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

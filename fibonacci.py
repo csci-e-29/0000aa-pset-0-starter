@@ -16,7 +16,6 @@ def optimized_fibonacci(f):
 
 
 class SummableSequence(object):
-
     def __init__(self, n, initial):
         raise NotImplementedError()
 
@@ -24,9 +23,9 @@ class SummableSequence(object):
         raise NotImplementedError()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
-    print('f(100000)[-8:]', last_8(optimized_fibonacci(100000)))
+    print("f(100000)[-8:]", last_8(optimized_fibonacci(100000)))
 
     new_seq = SummableSequence(3, (5, 7, 11))
-    print('new_seq(100000)[-8:]:', last_8(new_seq(100000)))
+    print("new_seq(100000)[-8:]:", last_8(new_seq(100000)))
