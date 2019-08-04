@@ -10,13 +10,19 @@ stages:
   - name: answers
     if: branch = master
 
-# Command to run tests, e.g. python setup.py test
-script: python3 -m unittest
-
 jobs:
   include:
     - stage: test
-      script: python3 -m unittest -v
+      install:
+        - pip install pipenv
+        - pipenv install --dev --ignore-pipfile --deploy --system
+      before_script: # code coverage tool
+         - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+         - chmod +x ./cc-test-reporter
+         - ./cc-test-reporter before-build
+      script: pytest --cov-report xml --cov-report term
+      after_script:
+        - if [[ "$TRAVIS_PULL_REQUEST" == "false" && "$TRAVIS_PYTHON_VERSION" == "3.6" ]]; then ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT; fi
     - stage: answers
       script: python3 fibonacci.py
       name: "Fibonacci"
