@@ -1,9 +1,12 @@
 import signal
+import sys
 from contextlib import contextmanager
+from io import StringIO
 from time import sleep, time
 from unittest import TestCase, main
 
 from fibonacci import SummableSequence, last_8, optimized_fibonacci
+from pyramid import print_pyramid
 
 try:
     # Absent on Windows, trigger AttributeError
@@ -34,6 +37,16 @@ except AttributeError:
         yield
         if time() - t0 > seconds:
             raise TimeoutError(message)
+
+
+@contextmanager
+def capture_print():
+    _stdout = sys.stdout
+    sys.stdout = StringIO()
+    try:
+        yield sys.stdout
+    finally:
+        sys.stdout = _stdout
 
 
 class FibTests(TestCase):
@@ -71,6 +84,23 @@ class MiscTests(TestCase):
     def test_8(self):
         self.assertEqual(123, last_8(123))
         self.assertEqual(last_8(123456789), 23456789)
+
+
+class PyramidTests(TestCase):
+    def _assert_expected(self, rows, expected):
+        with capture_print() as std:
+            print_pyramid(rows)
+
+        std.seek(0)
+        captured = std.read()
+
+        self.assertEqual(captured, expected)
+
+    def test_pyramid_one(self):
+        self._assert_expected(1, "=\n")
+
+    def test_pyramid_two(self):
+        self._assert_expected(2, "-=-\n" + "===\n")
 
 
 if __name__ == "__main__":
