@@ -178,7 +178,8 @@ Some tools will show you exactly which lines are covered, eg:
 ### Python Quality (10 points)
 
 We will comment on your overall quality of documentation, commenting,
-appropriate variable names, usage of higher-level code, etc.
+appropriate variable names, usage of higher-level code, etc.  Be sure to look
+at Code Climate reports to help you improve.
 
 ### Git History (10 points)
 
