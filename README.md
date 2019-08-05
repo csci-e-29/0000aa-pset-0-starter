@@ -1,5 +1,19 @@
 # Pset 0
 
+Replace these with your own build badges!
+
+[![Build Status](https://travis-ci.com/csci-e-29-dev/pset-0-starter.svg?token=aaaaa&branch=master)](https://travis-ci.com/csci-e-29-dev/pset-0-starter)
+
+[![Maintainability](https://api.codeclimate.com/v1/badges/aaaaa/maintainability)](https://codeclimate.com/repos/aaaaa/maintainability)
+
+[![Test Coverage](https://api.codeclimate.com/v1/badges/aaaaa/test_coverage)](https://codeclimate.com/repos/aaaaa/test_coverage)
+
+## Objectives
+
+* Build a working and repeatable Python environment
+* Track development history with Git/GitHub
+* Measure code quality with testing and Code Climate
+* Set up a CI/CD pipeline using Travis-CI to hold ourselves accountable
 This problem set is designed to be solvable with minimal prep work - you should
 be able to complete it with your own prior knowledge and limited external
 research beyond the provided tutorials. If it proves too challenging, please
