@@ -64,10 +64,13 @@ returned before the drop date.
 
 ## Problems (25 points)
 
-### Build badge (5 points)
+### Build badges (5 points)
 
-**[Add a build badge](https://docs.travis-ci.com/user/status-images/)** to the
-top of this README, using the markdown template for your master branch.  You
+Update the build badges at the top of this README, using markdown templates for
+your master branch.
+
+See [Travis](https://docs.travis-ci.com/user/status-images) and [Code
+Climate](https://docs.codeclimate.com/docs/overview#badges) instructions. You
 may add multiple if you'd like for various branches (eg, a 'develop' branch),
 but only one for master is required.
 
