@@ -34,155 +34,19 @@ returned before the drop date.
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-## Setting up your environment
+## Preamble
 
-You need a computer which can run python 3.7, and preferably an IDE and debugger.
-A good example is
-[PyCharm, which is free for students](https://www.jetbrains.com/student/).
+### Setting up your environment
 
-### Docker
-This course will explore Docker, a containerization system, to help develop
-within fully repeatable environments.  You may need to use docker immediately
-if you are developing on Windows (the unittests use [signals](https://docs.python.org/3.7/library/signal.html#signal.signal)).  You
-should experiment with docker regardless, though it is not critical yet.
+[Setup notes](docs/setup.md)
 
-Older versions of Windows and Mac can install legacy Docker Toolbox or
-[VirtualBox](https://www.virtualbox.org/) if necessary.
+### Grading standards and mechanics
 
-#### Installation and setup
-You can install [Docker](https://docs.docker.com/install/) and
-[Docker Compose](https://docs.docker.com/compose/install/) to get a fully
-repeatable environment.  You can then [set up PyCharm to use your docker-compose
-interpreter](https://www.jetbrains.com/help/pycharm/docker-compose.html), or do
-things manually on the terminal via:
+[Grading notes](docs/grading.md)
 
-```bash
-# If your requirements.txt changes, or first time
-docker-compose build
+### Showing your work!
 
-# Run python in the local directory
-docker-compose run app python some_file.py
-
-# Drop into an ipython shell in the container
-docker-compose run app ipython
-
-# Run unittests
-docker-compose run app python -m unittest
-```
-
-Docker is not strictly necessary to complete this initial set - just ensure you
-can get it running and will be ready to dive into the concepts.
-
-## Grading standards and mechanics
-
-You will submit your problem via editing this repository and pushing your code
-to Github Classroom before the deadline. There may be an associated "quiz" where
-you can submit answers as well.
-
-Please ensure that this README is visibly accurate on GitHub after your final
-submission.
-
-This is a Markdown file which allows for easy writing of rich text.  Many
-editors and IDEs will display a rendered version of this text for easy reading.
-Please read more about [GitHub Flavored
-Markdown](https://guides.github.com/features/mastering-markdown/) for style and
-syntax references.
-
-###  Submissions
-Some problems will require code, and some will be textual.  The latter will
-be captured via quizes on canvas to facilitate grading.  All code will be
-submitted through this repository.
-
-In addition to the answers you provide, we will subjectively grade you on the
-overall quality of your submission - stylistic consistency, readability, design,
-documentation, commenting, appropriate commit history, etc.  Treat this
-assignment as if it were a collaborative project in a real working environment.
-
-For example, regarding git history, we do not want to see a single commit with
-all of your work.  You should have an appropriate amount of history with
-consistent and logically isolated commits, minimal 'undo' commits, no
-unnecessary files added, etc.
-
-Each problem set will be worth a total of 100 points.  What you see here is
-for code only - the remaining points will be allocated to answers in Canvas
-and overall assessment.
-
-## Showing your work!
-
-It is not enough to run code in a Jupyter notebook, or even ipython shell,
-and paste the answer into Canvas.  These problem sets will be designed to rerun
-your work and validate it through "continuous integration and 'deployment.'"
-
-You may commit any python files you wish, but do NOT commit a Jupyter notebook.
-The general pattern for showing work looks like this:
-
-```python
-# some_file.py
-
-def f(x):
-    return x
-
-if __name__ == '__main__':
-    # Canvas asks for the value of f(10)
-    print('f(10) is:', f(10))
-```
-
-### CI/CD
-Take a look at the file [.travis.yml](.travis.yml).  When you push a commit
-to github, [Travis CI](https://travis-ci.com/) will run your code in a number
-of ways.  It will first run the unittests via `python3 -m unittest`, and, if
-those succeed, will progress to the 'Answers' stage of the build.  Note in
-the file how it invokes your runnables:
-
-```yaml
-
-jobs:
-  include:
-    - stage: test
-      script: python3 -m unittest -v
-    - stage: answers
-      script: python3 fibonacci.py
-```
-
-After you push your code, you will see a few indicators on GitHub that you
-can click through to see the status of the build.  Click on the "Commits" tab
-and then notice the red checks etc:
-
-![](img/commits.png)
-
-You can click through the details or navigate directly to your Travis page,
-which will have a url like so [PLEASE REPLACE your link!]:
-
-[https://travis-ci.com/csci-e-29/2019sp-pset-0-gorlins/](https://travis-ci.com/csci-e-29/2019sp-pset-0-gorlins/)
-
-You will add a build badge (see below) to make it even more explicit.  The
-teaching staff will look at your answers as 'deployed' via Travis to validate
-your submissions to Canvas.
-
-***NB***: We have limited concurrent builds.  Depending on how many students
-are submitting code simultaneously, your job may hang in 'pending' mode for a
-while.  The teaching staff will monitor and upgrade our build plan if necessary.
-
-### Git mechanics
-
-If you have never used Git or Github before, please see the supplemental
-tutorials section in Canvas or go through some Github tutorials.  Git has a
-steep learning curve.  Ask for help in Piazza if necessary.
-
-Your answers will only run on the master branch.  Since shared computing
-resources on the CI/CD environment are limited, please try to minimize the
-commits to master - try using a git branching model, and only 'release' work to
-master that is intended to be 'production ready' (eg fully answers one of the
-problems). You may merge to master multiple times - at the pset deadline, github
-will tag the latest master commit.  We will explore branching and release models
-like this more formally throughout the course.
-
-Try to avoid rapid small changes to master (eg don't edit directly on github!)
-without running tests yourself to ensure they pass.
-
-You may also add `[skip ci]` in your git message to instruct travis not to run
-tests for a commit.  Only do so for code that doesn't need testing - eg editing
-this README, or docstrings, etc.
+[Proof notes](docs/work.md)
 
 ## Problems (25 points)
 
@@ -279,10 +143,20 @@ Continue the implementation in [fibonacci.py](fibonacci.py).
 ### Testing Quality (20 points)
 
 Take a look at the file [tests.py](tests.py).  It has unittests you can run with
-`python3 -m unittest`.  They all should pass!  Do not touch the existing test
-methods, but you can add new ones to ensure your code is working properly.  Try
-to ensure tests pass before you commit and push new code on your master branch!
-This will help minimize the number of builds on the CI server.
+`python3 -m unittest` or `pytest`.  They all should pass!  Do not touch the
+existing test methods, but you can add new ones to ensure your code is working
+properly.  Try to ensure tests pass before you commit and push new code on your
+master branch! This will help minimize the number of builds on the CI server.
+
+#### Test Coverage
+
+Travis/Code Climate will report overall test coverage; try to cover every major
+function and clause you write.
+
+Some tools will show you exactly which lines are covered, eg:
+
+* [Run tests with coverage in Pycharm](https://www.jetbrains.com/help/pycharm/running-test-with-coverage.html)
+* Generate an html report directly with `pytest --cov-report html` then `open htmlcov/index.html`
 
 ### Python Quality (10 points)
 
