@@ -27,16 +27,12 @@ returned before the drop date.
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [Setting up your environment](#setting-up-your-environment)
-  - [Docker](#docker)
-    - [Installation and setup](#installation-and-setup)
-- [Grading standards and mechanics](#grading-standards-and-mechanics)
-  - [Submissions](#submissions)
-- [Showing your work!](#showing-your-work)
-  - [CI/CD](#cicd)
-  - [Git mechanics](#git-mechanics)
+- [Preamble](#preamble)
+  - [Setting up your environment](#setting-up-your-environment)
+  - [Grading standards and mechanics](#grading-standards-and-mechanics)
+  - [Showing your work!](#showing-your-work)
 - [Problems (25 points)](#problems-25-points)
-  - [Build badge (5 points)](#build-badge-5-points)
+  - [Build badges (5 points)](#build-badges-5-points)
   - [Pyramid (5 points)](#pyramid-5-points)
   - [Fibonacci (15 points)](#fibonacci-15-points)
     - [A better solution (5 points)](#a-better-solution-5-points)
