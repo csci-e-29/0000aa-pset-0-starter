@@ -10,10 +10,24 @@ Replace these with your own build badges!
 
 ## Objectives
 
-* Build a working and repeatable Python environment
+* Demonstrate mastery of basic python syntax (functions, classes, etc)
 * Track development history with Git/GitHub
-* Measure code quality with testing and Code Climate
 * Set up a CI/CD pipeline using Travis-CI to hold ourselves accountable
+* Measure code quality with testing and Code Climate
+* Build a working and repeatable Python environment
+
+### Submission Checklist
+
+* Build badges updated above
+* Code passes tests in Travis on Master Branch
+* Address any major code quality issues on Code Climate
+* Code is auto formatted with `black`
+* You have added relevant test cases and suites
+* The 'answers' stage on Travis successfully completes
+* Create a PR *from master* to the initial HW release tag
+* Answer the quiz questions on Canvas
+* Complete peer review (after submission deadline)
+
 This problem set is designed to be solvable with minimal prep work - you should
 be able to complete it with your own prior knowledge and limited external
 research beyond the provided tutorials. If it proves too challenging, please
@@ -40,6 +54,7 @@ returned before the drop date.
     - [Generalizing (10 points)](#generalizing-10-points)
 - [Other grading aspects (40 points)](#other-grading-aspects-40-points)
   - [Testing Quality (20 points)](#testing-quality-20-points)
+    - [Test Coverage](#test-coverage)
   - [Python Quality (10 points)](#python-quality-10-points)
   - [Git History (10 points)](#git-history-10-points)
 

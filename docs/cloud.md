@@ -47,6 +47,8 @@ or encrypted in your Travis yml.
 Log in to Code Climate with your GitHub account, then [join our
 org](https://codeclimate.com/activate/f246e982a421a1aacea0b0a259afd5).
 
+Go ahead and click 14 day free trial if needed (our org is free for students).
+
 You will need to ***add every pset repository*** to Code Climate after you clone
 it.
 
