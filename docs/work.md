@@ -9,7 +9,7 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-It is not enough to run code in a Jupyter notebook, or even ipython shell,
+It is not enough to run code in a Jupyter notebook, or even an ipython shell,
 and paste the answer into Canvas.  These problem sets will be designed to rerun
 your work and validate it through "continuous integration and 'deployment.'"
 

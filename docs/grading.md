@@ -13,8 +13,8 @@ You will submit your problem via editing this repository and pushing your code
 to Github Classroom before the deadline. There may be an associated "quiz" where
 you can submit answers as well.
 
-Please ensure that this README is visibly accurate on GitHub after your final
-submission.
+Please ensure that your [README.md](../README.md) is visibly accurate on GitHub
+after your final submission.
 
 This is a Markdown file which allows for easy writing of rich text.  Many
 editors and IDEs will display a rendered version of this text for easy reading.
@@ -24,8 +24,8 @@ syntax references.
 
 ###  Submissions
 Some problems will require code, and some will be textual.  The latter will
-be captured via quizes on canvas to facilitate grading.  All code will be
-submitted through this repository.
+be captured via quizzes on canvas to facilitate grading.  All code will be
+submitted through these repositories.
 
 In addition to the answers you provide, we will subjectively grade you on the
 overall quality of your submission - stylistic consistency, readability, design,

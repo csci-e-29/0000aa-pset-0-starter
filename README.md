@@ -28,7 +28,8 @@ returned before the drop date.
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 - [Preamble](#preamble)
-  - [Setting up your environment](#setting-up-your-environment)
+  - [Setting up your local environment](#setting-up-your-local-environment)
+  - [Setting up your cloud environment](#setting-up-your-cloud-environment)
   - [Grading standards and mechanics](#grading-standards-and-mechanics)
   - [Showing your work!](#showing-your-work)
 - [Problems (25 points)](#problems-25-points)
@@ -46,9 +47,13 @@ returned before the drop date.
 
 ## Preamble
 
-### Setting up your environment
+### Setting up your local environment
 
 [Setup notes](docs/setup.md)
+
+### Setting up your cloud environment
+
+[Cloud notes](docs/cloud.md)
 
 ### Grading standards and mechanics
 
