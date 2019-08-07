@@ -7,7 +7,9 @@
 - [AWS](#aws)
 - [Github](#github)
 - [TravisCI](#travisci)
+  - [Configuration](#configuration)
 - [Code Climate](#code-climate)
+  - [Configuring Travis for Code Coverage](#configuring-travis-for-code-coverage)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -32,6 +34,14 @@ locally.  We know when you commit directly online!
 You can log into Travis with your github account.  You may want to use the
 [Travis CLI](https://github.com/travis-ci/travis.rb).
 
+#### Configuration
+
+You may need to provide ***environment variables***, such as credentials or API
+tokens, to the Travis run time environment.  These should never be committed to
+your code base.  They may be manually added to [your Travis repo
+settings](https://docs.travis-ci.com/user/environment-variables/#defining-variables-in-repository-settings)
+or encrypted in your Travis yml.
+
 ### Code Climate
 
 Log in to Code Climate with your GitHub account, then [join our
@@ -52,3 +62,9 @@ option:
 `Add repo` button in GitHub:
 
 ![](../img/plugin.png)
+
+#### Configuring Travis for Code Coverage
+Once your repo is added to Code Climate, you will need to [get your token](https://docs.codeclimate.com/docs/finding-your-test-coverage-token) and add that to your
+Travis build environment as `CC_TEST_REPORTER_ID`
+
+![](../img/travis_env.png)
