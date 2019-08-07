@@ -175,7 +175,7 @@ Continue the implementation in [fibonacci.py](fibonacci.py).
 
 ### Testing Quality (20 points)
 
-Take a look at the file [tests.py](tests.py).  It has unittests you can run with
+Take a look at the file [test_pset.py](test_pset.py).  It has unittests you can run with
 `python3 -m unittest` or `pytest`.  They all should pass!  Do not touch the
 existing test methods, but you can add new ones to ensure your code is working
 properly.  Try to ensure tests pass before you commit and push new code on your
