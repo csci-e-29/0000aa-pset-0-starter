@@ -21,10 +21,10 @@ Replace these with your own build badges!
 * Build badges updated above
 * Code passes tests in Travis on Master Branch
 * Address any major code quality issues on Code Climate
-* Code is auto formatted with `black`
+* Code is auto formatted with [black](https://black.readthedocs.io/en/stable/)
 * You have added relevant test cases and suites
 * The 'answers' stage on Travis successfully completes
-* Create a PR *from master* to the initial HW release tag
+* Create a PR *from master* to the initial HW release tag#
 * Answer the quiz questions on Canvas
 * Complete peer review (after submission deadline)
 
@@ -34,8 +34,8 @@ research beyond the provided tutorials. If it proves too challenging, please
 discuss with the teaching staff whether you should consider delaying enrollment
 in this course.
 
-**Please complete this Pset before class begins** if possible.  Feedback will be
-returned before the drop date.
+**Please complete this Pset before class begins** if possible.  The refund drop
+date is very early in the semester.
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -174,18 +174,23 @@ Continue the implementation in [fibonacci.py](fibonacci.py).
 
 ## Other grading aspects (40 points)
 
+These will be recurring standards for every problem set.  Please see rubrics in
+Canvas for up to date details.
+
 ### Testing Quality (20 points)
 
-Take a look at the file [test_pset.py](test_pset.py).  It has unittests you can run with
-`python3 -m unittest` or `pytest`.  They all should pass!  Do not touch the
-existing test methods, but you can add new ones to ensure your code is working
-properly.  Try to ensure tests pass before you commit and push new code on your
-master branch! This will help minimize the number of builds on the CI server.
+Take a look at the file [test_pset.py](test_pset.py).  It has unittests you can
+run with `python3 -m unittest` or `pytest`.  They all should pass!  Do not touch
+the existing test methods, but you can add new ones to ensure your code is
+working properly.  Try to ensure tests pass before you commit and merge/push new
+code on your master branch! This will help minimize the number of builds on the
+CI server.
 
 #### Test Coverage
 
-Travis/Code Climate will report overall test coverage; try to cover every major
-function and clause you write.
+Travis/Code Climate will report overall test coverage if set up correctly; try
+to cover every major function and clause you write.  Travis will also display
+an output of coverage on the terminal.
 
 Some tools will show you exactly which lines are covered, eg:
 

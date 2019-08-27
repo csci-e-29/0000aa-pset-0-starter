@@ -15,8 +15,8 @@
 
 ### AWS
 
-You will need an [AWS](https://aws.amazon.com/account/) account.  You can get
-free credits by activating your [GitHub Student Developer
+You will need an [AWS](https://aws.amazon.com/account/) account for future
+psets.  You can get free credits by activating your [GitHub Student Developer
 Pack](https://education.github.com/pack).  Costs should be minimal, but be
 responsible with any compute and storage you consume during the class.
 
