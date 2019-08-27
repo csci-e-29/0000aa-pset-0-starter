@@ -129,7 +129,8 @@ with appropriate handling of the edge cases.
 
 #### A better solution (5 points)
 
-What is the value of `f(100000)`?
+What is the value of `f(100000)`? (NB: for brevity, you will work with the last
+eight digits of your answer.)
 
 Note that the common implementation will not work! Your code should execute very
 quickly (do not remove the timeouts in the unittests!).  Describe any changes
@@ -143,7 +144,7 @@ Implement your solution in `optimized_fibonacci` within
 
 We can think of this sequence as a special case of a class of sequences where
 the `i`th number is the sum of the previous `n` numbers in the sequence, with
-the first `n` numbers defined arbitrarily.   That is, the Fibonacci sequence is
+the first `n` numbers defined arbitrarily.  That is, the Fibonacci sequence is
 a special instance where `n=2` with the first numbers `(0, 1)`.
 
 Design a class where the Fibonacci sequence is an instance. Now, create a
@@ -153,7 +154,7 @@ return the value of `new_seq(100000)`.  E.g.:
 ```python
 class SummableSequence(object):
 
-    def __init__(self, n, initial):
+    def __init__(self, *initial):
         ...
 
     def __call__(self, i):
@@ -162,7 +163,7 @@ class SummableSequence(object):
 
 if __name__ == '__main__':
     ...
-    new_seq = SummableSequence(3, (5, 7, 11))
+    new_seq = SummableSequence(5, 7, 11)
     print(last_8(new_seq(100000)))
 ```
 
