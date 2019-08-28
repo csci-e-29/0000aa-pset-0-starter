@@ -67,10 +67,12 @@ class FibTests(TestCase):
                 self.assertEqual(optimized_fibonacci(n), expected)
 
     def test_summable(self):
-        ss = SummableSequence(2, (0, 1))
+        ss = SummableSequence(0, 1)
         for n in range(0, 50, 5):
             with timeout(message="Timeout running f({})".format(n)):
-                self.assertEqual(ss(n), optimized_fibonacci(n))
+                raise NotImplementedError(
+                    "You should implement this and other SummableSequence tests!"
+                )
 
 
 class TestTimeout(TestCase):
