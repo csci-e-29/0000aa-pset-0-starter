@@ -24,7 +24,6 @@ Replace these with your own build badges!
 * Code is auto formatted with [black](https://black.readthedocs.io/en/stable/)
 * You have added relevant test cases and suites
 * The 'answers' stage on Travis successfully completes
-* Create a PR *from master* to the initial HW release tag#
 * Answer the quiz questions on Canvas
 * Complete peer review (after submission deadline)
 
