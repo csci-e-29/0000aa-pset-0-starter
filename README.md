@@ -180,11 +180,11 @@ Canvas for up to date details.
 ### Testing Quality (20 points)
 
 Take a look at the file [test_pset.py](test_pset.py).  It has unittests you can
-run with `python3 -m unittest` or `pytest`.  They all should pass!  Do not touch
-the existing test methods, but you can add new ones to ensure your code is
-working properly.  Try to ensure tests pass before you commit and merge/push new
-code on your master branch! This will help minimize the number of builds on the
-CI server.
+run with `python3 -m unittest` or `pytest`.  They all should pass!  Do not
+remove the existing test methods, but you can add new ones to ensure your code
+is working properly.  Try to ensure tests pass before you commit and merge/push
+new code on your master branch! This will help minimize the number of builds on
+the CI server.
 
 #### Test Coverage
 
