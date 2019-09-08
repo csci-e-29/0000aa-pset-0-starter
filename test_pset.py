@@ -64,7 +64,7 @@ class FibTests(TestCase):
             (100, 354224848179261915075),
         ]:
             with timeout(message="Timeout running f({})".format(n)):
-                self.assertEqual(optimized_fibonacci(n), expected)
+                self.assertEqual(expected, optimized_fibonacci(n))
 
     def test_summable(self):
         ss = SummableSequence(0, 1)
@@ -85,7 +85,7 @@ class TestTimeout(TestCase):
 class MiscTests(TestCase):
     def test_8(self):
         self.assertEqual(123, last_8(123))
-        self.assertEqual(last_8(123456789), 23456789)
+        self.assertEqual(23456789, last_8(123456789))
 
 
 class PyramidTests(TestCase):
@@ -96,7 +96,7 @@ class PyramidTests(TestCase):
         std.seek(0)
         captured = std.read()
 
-        self.assertEqual(captured, expected)
+        self.assertEqual(expected, captured)
 
     def test_pyramid_one(self):
         self._assert_expected(1, "=\n")
