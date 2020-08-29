@@ -1,6 +1,9 @@
 # Pset 0
 
-Replace these with your own build badges!
+***Please review*** 'General Pset Instructions' on Canvas prior to starting this
+assignment!
+
+Replace the below with your own build badges:
 
 [![Build Status](https://travis-ci.com/csci-e-29-dev/pset-0-starter.svg?token=aaaaa&branch=master)](https://travis-ci.com/csci-e-29-dev/pset-0-starter)
 
@@ -40,46 +43,23 @@ date is very early in the semester.
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [Preamble](#preamble)
-  - [Setting up your local environment](#setting-up-your-local-environment)
-  - [Setting up your cloud environment](#setting-up-your-cloud-environment)
-  - [Grading standards and mechanics](#grading-standards-and-mechanics)
-  - [Showing your work!](#showing-your-work)
-- [Problems (25 points)](#problems-25-points)
-  - [Build badges (5 points)](#build-badges-5-points)
-  - [Pyramid (5 points)](#pyramid-5-points)
-  - [Fibonacci (15 points)](#fibonacci-15-points)
-    - [A better solution (5 points)](#a-better-solution-5-points)
-    - [Generalizing (10 points)](#generalizing-10-points)
-- [Other grading aspects (40 points)](#other-grading-aspects-40-points)
-  - [Testing Quality (20 points)](#testing-quality-20-points)
+- [Problems](#problems)
+  - [Build badges](#build-badges)
+  - [Pyramid](#pyramid)
+  - [Fibonacci](#fibonacci)
+    - [A better solution](#a-better-solution)
+    - [Generalizing](#generalizing)
+- [Other grading aspects](#other-grading-aspects)
+  - [Testing Quality](#testing-quality)
     - [Test Coverage](#test-coverage)
-  - [Python Quality (10 points)](#python-quality-10-points)
-  - [Git History (10 points)](#git-history-10-points)
+  - [Python Quality](#python-quality)
+  - [Git History](#git-history)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-## Preamble
+## Problems
 
-### Setting up your local environment
-
-[Setup notes](docs/setup.md)
-
-### Setting up your cloud environment
-
-[Cloud notes](docs/cloud.md)
-
-### Grading standards and mechanics
-
-[Grading notes](docs/grading.md)
-
-### Showing your work!
-
-[Proof notes](docs/work.md)
-
-## Problems (25 points)
-
-### Build badges (5 points)
+### Build badges
 
 Update the build badges at the top of this README, using markdown templates for
 your master branch.
@@ -89,7 +69,7 @@ Climate](https://docs.codeclimate.com/docs/overview#badges) instructions. You
 may add multiple if you'd like for various branches (eg, a 'develop' branch),
 but only one for master is required.
 
-### Pyramid (5 points)
+### Pyramid
 
 Write a program that outputs an isosceles pyramid of variable height to the
 terminal using the example characters.  For example, a pyramid of height 2 would
@@ -111,7 +91,7 @@ While a pyramid of height 3 would look like:
 Implement the function `print_pyramid` in [pyramid.py](pyramid.py) and print a
 pyramid of height 10.
 
-### Fibonacci (15 points)
+### Fibonacci
 
 The Fibonacci sequence, `f(i)`, is defined as `(0, 1, 1, 2, 3, 5, 8, ...)` where
 the `i`th number is the sum of the two proceeding numbers, with `f(0) == 0` and
@@ -125,8 +105,7 @@ def f(i):
 
 with appropriate handling of the edge cases.
 
-
-#### A better solution (5 points)
+#### A better solution
 
 What is the value of `f(100000)`? (NB: for brevity, you will work with the last
 eight digits of your answer.)
@@ -139,16 +118,16 @@ working function is committed.
 Implement your solution in `optimized_fibonacci` within
 [fibonacci.py](fibonacci.py).
 
-#### Generalizing (10 points)
+#### Generalizing
 
 We can think of this sequence as a special case of a class of sequences where
 the `i`th number is the sum of the previous `n` numbers in the sequence, with
 the first `n` numbers defined arbitrarily.  That is, the Fibonacci sequence is
 a special instance where `n=2` with the first numbers `(0, 1)`.
 
-Design a class where the Fibonacci sequence is an instance. Now, create a
-new sequence instance where `n=3` and the initial values are `(5, 7, 11)`;
-return the value of `new_seq(100000)`.  E.g.:
+Design a class where the Fibonacci sequence is an instance (eg, `fib =
+SummableSequence(...)`). Now, create a new sequence instance where `n=3` and the
+initial values are `(5, 7, 11)`; return the value of `new_seq(100000)`.  E.g.:
 
 ```python
 class SummableSequence(object):
@@ -171,19 +150,26 @@ class!*** We want this to be an efficient solution as well.
 
 Continue the implementation in [fibonacci.py](fibonacci.py).
 
-## Other grading aspects (40 points)
+## Other grading aspects
 
 These will be recurring standards for every problem set.  Please see rubrics in
 Canvas for up to date details.
 
-### Testing Quality (20 points)
+### Testing Quality
 
 Take a look at the file [test_pset.py](test_pset.py).  It has unittests you can
 run with `python3 -m unittest` or `pytest`.  They all should pass!  Do not
-remove the existing test methods, but you can add new ones to ensure your code
-is working properly.  Try to ensure tests pass before you commit and merge/push
-new code on your master branch! This will help minimize the number of builds on
-the CI server.
+remove the existing test methods, but you are expected to add new ones to ensure
+your code is working properly.  Deciding exactly what tests to add, and how much
+coverage you need to achieve, is a decision you must make yourself for every
+pset - we will grade partially on whether or not you identify appropriate test
+cases.
+
+Try to ensure (the right) tests pass before you commit and merge/push new code
+on your master branch! This will help minimize the number of builds on the CI
+server.  That is, ***test locally*** first before committing, pushing, or
+merging to master.  This is good practice in general and will help with the
+shared resources.
 
 #### Test Coverage
 
@@ -191,18 +177,19 @@ Travis/Code Climate will report overall test coverage if set up correctly; try
 to cover every major function and clause you write.  Travis will also display
 an output of coverage on the terminal.
 
-Some tools will show you exactly which lines are covered, eg:
+To help with your own development, you can use tools which show you exactly
+which lines are covered, eg:
 
 * [Run tests with coverage in Pycharm](https://www.jetbrains.com/help/pycharm/running-test-with-coverage.html)
 * Generate an html report directly with `pytest --cov-report html` then `open htmlcov/index.html`
 
-### Python Quality (10 points)
+### Python Quality
 
 We will comment on your overall quality of documentation, commenting,
-appropriate variable names, usage of higher-level code, etc.  Be sure to look
-at Code Climate reports to help you improve.
+appropriate variable names, usage of higher-level code, etc.  Be sure to look at
+Code Climate reports to help you improve.
 
-### Git History (10 points)
+### Git History
 
 Git commits should be logically structured, follow a branching model, etc.  Do
 not commit irrelevant files to the VCS (eg, anything under `__pycache__` or your
