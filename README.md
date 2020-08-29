@@ -1,6 +1,9 @@
 # Pset 0
 
-Replace these with your own build badges!
+***Please review*** 'General Pset Instructions' on Canvas prior to starting this
+assignment!
+
+Replace the below with your own build badges:
 
 [![Build Status](https://travis-ci.com/csci-e-29-dev/pset-0-starter.svg?token=aaaaa&branch=master)](https://travis-ci.com/csci-e-29-dev/pset-0-starter)
 
@@ -40,11 +43,6 @@ date is very early in the semester.
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [Preamble](#preamble)
-  - [Setting up your local environment](#setting-up-your-local-environment)
-  - [Setting up your cloud environment](#setting-up-your-cloud-environment)
-  - [Grading standards and mechanics](#grading-standards-and-mechanics)
-  - [Showing your work!](#showing-your-work)
 - [Problems (25 points)](#problems-25-points)
   - [Build badges (5 points)](#build-badges-5-points)
   - [Pyramid (5 points)](#pyramid-5-points)
@@ -58,24 +56,6 @@ date is very early in the semester.
   - [Git History (10 points)](#git-history-10-points)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-## Preamble
-
-### Setting up your local environment
-
-[Setup notes](docs/setup.md)
-
-### Setting up your cloud environment
-
-[Cloud notes](docs/cloud.md)
-
-### Grading standards and mechanics
-
-[Grading notes](docs/grading.md)
-
-### Showing your work!
-
-[Proof notes](docs/work.md)
 
 ## Problems (25 points)
 
