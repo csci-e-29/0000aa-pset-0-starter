@@ -26,8 +26,7 @@ Replace the below with your own build badges:
 * Address any major code quality issues on Code Climate
 * Code is auto formatted with [black](https://black.readthedocs.io/en/stable/)
 * You have added relevant test cases and suites
-* The 'answers' stage on Travis successfully completes
-* Answer the quiz questions on Canvas
+* The deploy submits your assignment and answers quiz ahead of the deadline
 * Complete peer review (after submission deadline)
 
 This problem set is designed to be solvable with minimal prep work - you should
@@ -49,6 +48,7 @@ date is very early in the semester.
   - [Fibonacci](#fibonacci)
     - [A better solution](#a-better-solution)
     - [Generalizing](#generalizing)
+  - [Submit!](#submit)
 - [Other grading aspects](#other-grading-aspects)
   - [Testing Quality](#testing-quality)
     - [Test Coverage](#test-coverage)
@@ -149,6 +149,38 @@ if __name__ == '__main__':
 class!*** We want this to be an efficient solution as well.
 
 Continue the implementation in [fibonacci.py](fibonacci.py).
+
+### Submit!
+
+Note the `deploy` in your [.travis.yml](.travis.yml).  After your tests
+successfully run in CI, this will run [submit.py](submit.py) to submit your
+assignment and answer the quiz on Canvas.  Note that the submit script must pull
+questions from the quiz, parse the question, and run the appropriate code - you
+should not have any hard-coded responses where code can run.  Eg, you will
+import your fibonacci functions and run them based on the quiz input.
+
+You can run the submit script manually from your machine if necessary to develop
+it (or also see Canvas for a test quiz and assignment), but you should ensure
+your final submission is via CI/CD.
+
+You will need to provide the approprate environment variables and Canvas token
+to your Travis environment - ***DO NOT COMMIT THESE SECRETS TO THE CODE BASE***.
+See Canvas and Travis docs for information.  You can get Canvas ID's usually by
+inspecting the URL of an assignment or quiz.  Eg, when on an assignment page,
+the URL is:
+
+`https://canvas.harvard.edu/courses/{course_id}/assignments/{assignment_id}`
+
+Deployments should run before the deadline.  However, if there is a substantial
+build queue, we will forgive late deployments if the ***commit*** was pushed
+before the deadline.
+
+Sometimes, people like to work from their own private repos and Travis accounts,
+to allow for more builds and less build queue.  This is fine.  You must,
+however, push your code back to the classroom org - the final submission link
+must be in our org (even if the build is not).  Point the build badge where you
+want, and push your code to the classroom org before peer review and grading
+begins.
 
 ## Other grading aspects
 
