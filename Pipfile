@@ -9,6 +9,7 @@ pytest-cov = "*"
 
 [packages]
 canvasapi = "*"
+environs = "*"
 
 [requires]
 python_version = "3.8"
