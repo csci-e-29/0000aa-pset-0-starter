@@ -21,15 +21,26 @@ def get_answers(questions: List[QuizSubmissionQuestion]) -> List[Dict]:
 
 def get_submission_comments(repo: Repo, qsubmission: QuizSubmission) -> Dict:
     """Get some info about this submission"""
+
+    build_url = (
+        os.environ.get("GITHUB_SERVER_URL", "local")
+        + "/"
+        + os.environ.get("GITHUB_REPOSITORY", "repo")
+        + "/actions/runs/"
+        + str(os.environ.get("GITHUB_RUN_ID", 42))
+    )
+
+    # travis_url key not renamed to remain consistent with submissions using
+    # prior versions of pset0
     return dict(
         hexsha=repo.head.commit.hexsha[:8],
         submitted_from=repo.remotes.origin.url,
         dt=repo.head.commit.committed_datetime.isoformat(),
-        branch=os.environ.get("TRAVIS_BRANCH", None),  # repo.active_branch.name,
+        branch=os.environ.get("GITHUB_REF", None),  # repo.active_branch.name,
         is_dirty=repo.is_dirty(),
         quiz_submission_id=qsubmission.id,
         quiz_attempt=qsubmission.attempt,
-        travis_url=os.environ.get("TRAVIS_BUILD_WEB_URL", None),
+        travis_url=build_url,
     )
 
 

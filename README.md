@@ -5,7 +5,7 @@ assignment!
 
 Replace the below with your own build badges:
 
-[![Build Status](https://travis-ci.com/csci-e-29/0000aa-pset-0-starter.svg?branch=master)](https://travis-ci.com/csci-e-29/0000aa-pset-0-starter)
+[![Build Status](https://github.com/csci-e-29/0000aa-pset-0-starter/workflows/build%20status/badge.svg)](https://github.com/csci-e-29/0000aa-pset-0-starter/actions?query=workflow%3A%22build+status%22)
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/aaaaa/maintainability)](https://codeclimate.com/repos/aaaaa/maintainability)
 
@@ -15,14 +15,14 @@ Replace the below with your own build badges:
 
 * Demonstrate mastery of basic python syntax (functions, classes, etc)
 * Track development history with Git/GitHub
-* Set up a CI/CD pipeline using Travis-CI to hold ourselves accountable
+* Set up a CI/CD pipeline using Github Actions to hold ourselves accountable
 * Measure code quality with testing and Code Climate
 * Build a working and repeatable Python environment
 
 ### Submission Checklist
 
 * Build badges updated above
-* Code passes tests in Travis on Master Branch
+* Code passes tests in Github Actions on Master Branch
 * Address any major code quality issues on Code Climate
 * Code is auto formatted with [black](https://black.readthedocs.io/en/stable/)
 * You have added relevant test cases and suites
@@ -64,7 +64,8 @@ date is very early in the semester.
 Update the build badges at the top of this README, using markdown templates for
 your master branch.
 
-See [Travis](https://docs.travis-ci.com/user/status-images) and [Code
+See [Adding a workflow status badge
+](https://docs.github.com/en/actions/managing-workflow-runs/adding-a-workflow-status-badge) and [Code
 Climate](https://docs.codeclimate.com/docs/overview#badges) instructions. You
 may add multiple if you'd like for various branches (eg, a 'develop' branch),
 but only one for master is required.
@@ -152,7 +153,7 @@ Continue the implementation in [fibonacci.py](fibonacci.py).
 
 ### Submit!
 
-Note the `deploy` in your [.travis.yml](.travis.yml).  After your tests
+Note the `Submti to Canvas` step in your [cicd.yml](.github/workflows/cicd.yml).  After your tests
 successfully run in CI, this will run [submit.py](submit.py) to submit your
 assignment and answer the quiz on Canvas.  Note that the submit script must pull
 questions from the quiz, parse the question, and run the appropriate code - you
@@ -164,23 +165,20 @@ it (or also see Canvas for a test quiz and assignment), but you should ensure
 your final submission is via CI/CD.
 
 You will need to provide the approprate environment variables and Canvas token
-to your Travis environment - ***DO NOT COMMIT THESE SECRETS TO THE CODE BASE***.
-See Canvas and Travis docs for information.  You can get Canvas ID's usually by
+to your Github Actions environment - ***DO NOT COMMIT THESE SECRETS TO THE CODE BASE***.
+See Canvas and Github [Encrypted Secrets](https://docs.github.com/en/actions/reference/encrypted-secrets) docs for information.  You can get Canvas ID's usually by
 inspecting the URL of an assignment or quiz.  Eg, when on an assignment page,
 the URL is:
 
 `https://canvas.harvard.edu/courses/{course_id}/assignments/{assignment_id}`
 
-Deployments should run before the deadline.  However, if there is a substantial
-build queue, we will forgive late deployments if the ***commit*** was pushed
-before the deadline.
+Deployments should run before the deadline.
 
-Sometimes, people like to work from their own private repos and Travis accounts,
-to allow for more builds and less build queue.  This is fine.  You must,
-however, push your code back to the classroom org - the final submission link
-must be in our org (even if the build is not).  Point the build badge where you
-want, and push your code to the classroom org before peer review and grading
-begins.
+Sometimes, people like to work from their own private repos and CI/CD accounts.
+This is fine.  You must, however, push your code back to the classroom org -
+the final submission link must be in our org (even if the build is not).
+Point the build badge where you want, and push your code to the classroom org
+before peer review and grading begins.
 
 ## Other grading aspects
 
@@ -205,9 +203,8 @@ shared resources.
 
 #### Test Coverage
 
-Travis/Code Climate will report overall test coverage if set up correctly; try
-to cover every major function and clause you write.  Travis will also display
-an output of coverage on the terminal.
+Github Actions/Code Climate will report overall test coverage if set up correctly; try
+to cover every major function and clause you write.
 
 To help with your own development, you can use tools which show you exactly
 which lines are covered, eg:
