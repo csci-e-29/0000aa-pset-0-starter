@@ -70,9 +70,13 @@ class FibTests(TestCase):
         ss = SummableSequence(0, 1)
         for n in range(0, 50, 5):
             with timeout(message="Timeout running f({})".format(n)):
-                raise NotImplementedError(
-                    "You should implement this and other SummableSequence tests!"
-                )
+                self.assertEqual(optimized_fibonacci(n), ss(n))
+
+    # testing the summable sequence from 3 initial elements
+    def test_summable2(self):
+        ss2 = SummableSequence(5, 7, 11)
+        for n, expected in [(0, 0), (1, 5), (2, 7), (3, 11), (4, 41), (5, 75)]:
+            self.assertEqual(expected, ss2(n))
 
 
 class TestTimeout(TestCase):
@@ -103,6 +107,9 @@ class PyramidTests(TestCase):
 
     def test_pyramid_two(self):
         self._assert_expected(2, "-=-\n" + "===\n")
+
+    def test_pyramid_two(self):
+        self._assert_expected(3, "--=--\n" + "-===-\n" + "=====\n")
 
 
 if __name__ == "__main__":
