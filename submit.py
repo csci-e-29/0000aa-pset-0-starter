@@ -16,6 +16,7 @@ from fibonacci import last_8
 from pyramid import print_pyramid
 from test_pset import capture_print
 
+
 def pyramid_extract(rows):
     """Returns string equivalent to what print_pyramid() prints
     Employs capture_print() as provided in test_pset.py
@@ -25,20 +26,31 @@ def pyramid_extract(rows):
     std.seek(0)
     return std.read()
 
+
 def get_answers(questions: List[QuizSubmissionQuestion]) -> List[Dict]:
     """Creates answers for Canvas quiz questions"""
-    answer_0 = {'fib_100000': last_8(optimized_fibonacci(100000)), 'summable_5_7_11_100000': last_8(SummableSequence(5,7,11)(100000)), 'summable_0_1_100000': last_8(SummableSequence(0,1)(100000)), 'fib_234202': last_8(optimized_fibonacci(234202)), 'summable_8_9_99_141515': last_8(SummableSequence(8,9,99)(141515)), 'summable_5_98_7_35_2_603': last_8(SummableSequence(5,98,7,35,2)(603))}
-    answer_1 = {'pyramid_24': hashlib.sha256(pyramid_extract(24).encode()).hexdigest()[:8], 'pyramid_53': hashlib.sha256(pyramid_extract(53).encode()).hexdigest()[:8]}
 
-    answers = []
-    answers.append(answer_0)
-    answers.append(answer_1)
-    answers.append(8032)
+    answer_0 = {
+        "fib_100000": last_8(optimized_fibonacci(100000)),
+        "summable_5_7_11_100000": last_8(SummableSequence(5, 7, 11)(100000)),
+        "summable_0_1_100000": last_8(SummableSequence(0, 1)(100000)),
+        "fib_234202": last_8(optimized_fibonacci(234202)),
+        "summable_8_9_99_141515": last_8(SummableSequence(8, 9, 99)(141515)),
+        "summable_5_98_7_35_2_603": last_8(SummableSequence(5, 98, 7, 35, 2)(603)),
+    }
+    answer_1 = {
+        "pyramid_24": hashlib.sha256(pyramid_extract(24).encode()).hexdigest()[:8],
+        "pyramid_53": hashlib.sha256(pyramid_extract(53).encode()).hexdigest()[:8],
+    }
+    answer_2 = 8610
+
+    answers = [answer_0, answer_1, answer_2]
 
     results = []
     for i in range(len(questions)):
-        results.append({'id':questions[i].id, 'answer': answers[i]})
+        results.append({"id": questions[i].id, "answer": answers[i]})
     return results
+
 
 def get_submission_comments(repo: Repo, qsubmission: QuizSubmission) -> Dict:
     """Get some info about this submission"""
