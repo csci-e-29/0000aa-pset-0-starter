@@ -16,6 +16,14 @@ from fibonacci import last_8
 from pyramid import print_pyramid
 from test_pset import capture_print
 
+def pyramid_extract(rows):
+    """Returns string equivalent to what print_pyramid() prints
+    Employs capture_print() as provided in test_pset.py
+    """
+    with capture_print() as std:
+        print_pyramid(rows)
+    std.seek(0)
+    return std.read()
 
 def get_answers(questions: List[QuizSubmissionQuestion]) -> List[Dict]:
     """Creates answers for Canvas quiz questions"""
