@@ -5,11 +5,11 @@ assignment!
 
 Replace the below with your own build badges:
 
-[![Build Status](https://travis-ci.com/csci-e-29/0000aa-pset-0-starter.svg?branch=master)](https://travis-ci.com/csci-e-29/0000aa-pset-0-starter)
+[![Build Status](https://travis-ci.com/arue-code/pset0.svg?branch=pset0-edit)](https://travis-ci.com/arue-code/pset0)
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/aaaaa/maintainability)](https://codeclimate.com/repos/aaaaa/maintainability)
+[![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
 
-[![Test Coverage](https://api.codeclimate.com/v1/badges/aaaaa/test_coverage)](https://codeclimate.com/repos/aaaaa/test_coverage)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/test_coverage)](https://codeclimate.com/github/codeclimate/codeclimate/test_coverage)
 
 ## Objectives
 
@@ -90,6 +90,7 @@ While a pyramid of height 3 would look like:
 
 Implement the function `print_pyramid` in [pyramid.py](pyramid.py) and print a
 pyramid of height 10.
+
 
 ### Fibonacci
 
@@ -228,3 +229,5 @@ not commit irrelevant files to the VCS (eg, anything under `__pycache__` or your
 editor/IDE configurations).  Never `git add *` or `git commit -a`!  They lump
 all your changes together; you want each commit to be a logical bit of history
 that captures what was done and why in a cohesive unit.
+
+

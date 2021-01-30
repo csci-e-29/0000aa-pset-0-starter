@@ -15,6 +15,13 @@ def get_answers(questions: List[QuizSubmissionQuestion]) -> List[Dict]:
     # It should be a list of dicts, one per q, each with an 'id' and 'answer' field
     # The format of the 'answer' field depends on the question type
     # You are responsible for collating questions with the functions to call - do not hard code
+    # answer_lists = [
+    #    {"id": questions[0].id, "answer": {key: XXXXX(key) for key in questions[0].answer.keys()}}
+    #    {"id": questions[1].id, "answer": {key: XXXXX(key) for key in questions[1].answer.keys()}}
+    #    {"id": questions[2].id, "answer": {key: XXXXX(key) for key in questions[2].answer.keys()}}
+    # ]
+    # I was struggaling to write the code for this and add the answers to submit before the deadline. So I will be submitting the answers manually in the quiz assignment on canvas. I will look to improve this for next time. I wasn't expecting this last part to take so much time.
+
     raise NotImplementedError()
     # eg {"id": questions[0].id, "answer": {key: some_func(key) for key in questions[0].answer.keys()}}
 

@@ -8,7 +8,8 @@ A pyramid of height 3 would look like:
 =====
 
 """
-
+import numpy as np
+import math
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 
 
@@ -17,7 +18,12 @@ def print_pyramid(rows):
 
     :param int rows: total height
     """
-    raise NotImplementedError("Called with rows={}".format(rows))
+
+    for i in range(rows):
+        # print(f"i = {i}")
+        print("-" * (rows - 1 - i), end="")
+        print("=" * (i + i + 1), end="")
+        print("-" * (rows - 1 - i))
 
 
 if __name__ == "__main__":
