@@ -1,8 +1,4 @@
 # Config file for automatic testing at travis-ci.org
-env:
-  global:
-    - CC_TEST_REPORTER_ID=b162ed2a023142c23441fbb25ad06123bc1599b77f4c1354a78e71502080277e
-
 language: python
 python:
   - 3.8
