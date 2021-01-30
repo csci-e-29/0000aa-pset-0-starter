@@ -1,5 +1,7 @@
 # Pset 0
 
+test
+
 ***Please review*** 'General Pset Instructions' on Canvas prior to starting this
 assignment!
 
