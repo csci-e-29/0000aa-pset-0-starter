@@ -1,5 +1,6 @@
 import json
 import os
+from datetime import timezone, timedelta, datetime
 from pprint import pprint
 from typing import List, Dict
 
@@ -43,7 +44,11 @@ if __name__ == "__main__":
     course_id = env.int("CANVAS_COURSE_ID")
     assignment_id = env.int("CANVAS_ASSIGNMENT_ID")
     quiz_id = env.int("CANVAS_QUIZ_ID")
-    as_user_id = env.int("CANVAS_AS_USER_ID", 0)  # Optional - for test student
+    as_user_id = env.int("CANVAS_AS_USER_ID", 0)  # Ignore - for faculty testing
+
+    late_days = env.int(
+        "LATE_SUBMISSION_DAYS", 0
+    )  # Prevents builds after the submission deadline
 
     if as_user_id:
         masquerade = dict(as_user_id=as_user_id)
@@ -67,6 +72,17 @@ if __name__ == "__main__":
     )  # you MUST push to the classroom org, even if CI/CD runs elsewhere (you can push anytime before peer review begins)
 
     qsubmission = None
+
+    if datetime.now(timezone.utc) > (
+        assignment.due_at_date + timedelta(days=late_days)
+    ):
+        # If you accidentally trigger a build after the deadline, this
+        # code will rerun - and mark your submissions late!  Therefore it
+        # is best to error out unless you intend to submit late
+        raise RuntimeError(
+            "Assignment past due, will not submit. Set LATE_SUBMISSION_DAYS if you want to submit late"
+        )
+
     try:
         # Attempt quiz submission first - only submit assignment if successful
         qsubmission = quiz.create_submission(**masquerade)
