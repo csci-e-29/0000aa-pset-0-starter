@@ -44,16 +44,13 @@ if __name__ == "__main__":
     course_id = env.int("CANVAS_COURSE_ID")
     assignment_id = env.int("CANVAS_ASSIGNMENT_ID")
     quiz_id = env.int("CANVAS_QUIZ_ID")
-    as_user_id = env.int("CANVAS_AS_USER_ID", 0)  # Ignore - for faculty testing
+    as_test_student = env.bool(
+        "CANVAS_AS_TEST_STUDENT", False
+    )  # Ignore - for faculty testing
 
     late_days = env.int(
         "LATE_SUBMISSION_DAYS", 0
     )  # Prevents builds after the submission deadline
-
-    if as_user_id:
-        masquerade = dict(as_user_id=as_user_id)
-    else:
-        masquerade = {}
 
     if repo.is_dirty() and not env.bool("ALLOW_DIRTY", False):
         raise RuntimeError(
@@ -62,7 +59,15 @@ if __name__ == "__main__":
 
     # Load canvas objects
     canvas = Canvas(env.str("CANVAS_URL"), env.str("CANVAS_TOKEN"))
-    course = canvas.get_course(course_id, **masquerade)
+    course = canvas.get_course(course_id)
+
+    # Masquerade as a student (for faculty testing)
+    if as_test_student:
+        test_student = course.get_users(enrollment_type=["student_view"])[0]
+        masquerade = dict(as_user_id=test_student.id)
+    else:
+        masquerade = {}
+
     assignment = course.get_assignment(assignment_id, **masquerade)
     quiz = course.get_quiz(quiz_id, **masquerade)
 
