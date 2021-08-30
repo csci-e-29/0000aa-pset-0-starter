@@ -1,17 +1,22 @@
 import json
 import os
-from datetime import timezone, timedelta, datetime
+from datetime import datetime, timedelta, timezone
 from pprint import pprint
-from typing import List, Dict
+from typing import Dict, List
 
 from canvasapi import Canvas
-from canvasapi.quiz import QuizSubmissionQuestion, QuizSubmission
+from canvasapi.quiz import QuizSubmission, QuizSubmissionQuestion
 from environs import Env
 from git import Repo
 
 
-def get_answers(questions: List[QuizSubmissionQuestion]) -> List[Dict]:
-    """Creates answers for Canvas quiz questions"""
+def get_answers(
+    questions: List[QuizSubmissionQuestion], submission_info: dict = None
+) -> List[Dict]:
+    """Creates answers for Canvas quiz questions
+
+    :param dict submission_info: repo and submission stats used to answer the generic pset questions
+    """
     # Formulate your answers - see docs for QuizSubmission.answer_submission_questions below
     # It should be a list of dicts, one per q, each with an 'id' and 'answer' field
     # The format of the 'answer' field depends on the question type
@@ -20,7 +25,7 @@ def get_answers(questions: List[QuizSubmissionQuestion]) -> List[Dict]:
     # eg {"id": questions[0].id, "answer": {key: some_func(key) for key in questions[0].answer.keys()}}
 
 
-def get_submission_comments(repo: Repo, qsubmission: QuizSubmission) -> Dict:
+def get_submission_info(repo: Repo, qsubmission: QuizSubmission) -> Dict:
     """Get some info about this submission"""
     return dict(
         hexsha=repo.head.commit.hexsha[:8],
@@ -89,9 +94,11 @@ if __name__ == "__main__":
         )
 
     try:
+
         # Attempt quiz submission first - only submit assignment if successful
         qsubmission = quiz.create_submission(**masquerade)
         questions = qsubmission.get_submission_questions(**masquerade)
+        submission_info = get_submission_info(repo, qsubmission)
 
         # Get some basic info to help develop
         for q in questions:
@@ -108,7 +115,7 @@ if __name__ == "__main__":
             print()
 
         # Submit your answers
-        answers = get_answers(questions)
+        answers = get_answers(questions, submission_info=submission_info)
         pprint(answers)
         responses = qsubmission.answer_submission_questions(
             quiz_questions=answers, **masquerade
@@ -124,9 +131,7 @@ if __name__ == "__main__":
                     submission_type="online_url",
                     url=url,
                 ),
-                comment=dict(
-                    text_comment=json.dumps(get_submission_comments(repo, qsubmission))
-                ),
+                comment=dict(text_comment=json.dumps(submission_info)),
                 **masquerade,
             )
 
