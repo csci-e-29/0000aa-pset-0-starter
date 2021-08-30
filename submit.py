@@ -79,7 +79,7 @@ if __name__ == "__main__":
     qsubmission = None
 
     if datetime.now(timezone.utc) > (
-        assignment.due_at_date + timedelta(days=late_days)
+        assignment.due_at_date + timedelta(days=late_days, minutes=30)
     ):
         # If you accidentally trigger a build after the deadline, this
         # code will rerun - and mark your submissions late!  Therefore it
