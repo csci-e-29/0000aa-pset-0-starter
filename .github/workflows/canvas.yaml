@@ -57,6 +57,5 @@ jobs:
         CANVAS_ASSIGNMENT_ID: 500790
         CANVAS_QUIZ_ID: 229920
         CANVAS_URL: https://canvas.harvard.edu
-        CANVAS_AS_TEST_STUDENT: True
       run: |
         pipenv run python submit.py
