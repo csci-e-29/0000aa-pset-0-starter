@@ -53,9 +53,9 @@ jobs:
     - name: Submission
       env:
         CANVAS_TOKEN: ${{ secrets.CANVAS_TOKEN }}
-        CANVAS_COURSE_ID: 94811
-        CANVAS_ASSIGNMENT_ID: 500790
-        CANVAS_QUIZ_ID: 229920
+        CANVAS_COURSE_ID: ${{ secrets.CANVAS_COURSE_ID }}
+        CANVAS_ASSIGNMENT_ID: ${{ secrets.CANVAS_ASSIGNMENT_ID }}
+        CANVAS_QUIZ_ID: ${{ secrets.CANVAS_QUIZ_ID }}
         CANVAS_URL: https://canvas.harvard.edu
       run: |
         pipenv run python submit.py
